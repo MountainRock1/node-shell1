@@ -10,20 +10,22 @@ const done = (output) => {
 
 };
 
+module.exports = done;
+
+
 process.stdout.write('prompt > ');
 process.stdin.on('data', (data) => {
     const cmd = data.toString().trim(); 
     if (cmd == 'pwd') {
-        reqPwd();
+        reqPwd(done);
     }
     else if (cmd == 'ls') {
-        reqLs();
+        reqLs(done);
     }
     else if (cmd.slice(0,3) == 'cat') {
         arr = cmd.split(' ');
         arg = arr[1];
-        cat(arr[1]);
+        cat(arr[1], done);
     }
 });
 
-module.exports = done

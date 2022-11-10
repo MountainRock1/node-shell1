@@ -12,12 +12,14 @@ const done = require('./bash.js')
 //     });
 //   }
 
-    
 
-    
+// const done = (output) => {
+//   // show the output
+//   process.stdout.write(output);
+//   // show the prompt
+//   process.stdout.write('\nprompt > ');
 
-
-// module.exports = ls;
+// };
 
 module.exports = (done) => {
   fs.readdir('./', 'utf8', (err, files) => {
