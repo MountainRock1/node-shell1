@@ -1,6 +1,15 @@
 let reqPwd = require('./pwd.js');
 let reqLs = require('./ls.js');
 let cat = require('./cat.js');
+
+const done = (output) => {
+    // show the output
+    process.stdout.write(output);
+    // show the prompt
+    process.stdout.write('\nprompt > ');
+
+};
+
 process.stdout.write('prompt > ');
 process.stdin.on('data', (data) => {
     const cmd = data.toString().trim(); 
@@ -16,3 +25,5 @@ process.stdin.on('data', (data) => {
         cat(arr[1]);
     }
 });
+
+module.exports = done
