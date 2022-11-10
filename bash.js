@@ -1,6 +1,8 @@
 let reqPwd = require('./pwd.js');
 let reqLs = require('./ls.js');
 let cat = require('./cat.js');
+let date1 = require('./date.js');
+
 
 const done = (output) => {
     // show the output
@@ -26,6 +28,9 @@ process.stdin.on('data', (data) => {
         arr = cmd.split(' ');
         arg = arr[1];
         cat(arr[1], done);
+    }
+    else if (cmd == 'date') {
+        date1(done);
     }
 });
 
